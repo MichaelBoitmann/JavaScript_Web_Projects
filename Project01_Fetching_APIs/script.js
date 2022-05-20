@@ -3,13 +3,26 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
+const loader = document.getElementById('loader');
 
 // Quotes are fetch with API
 let apiQuotes = [];
 
+// Show Loading
+function loading() {
+    loader.hidden = false;
+    quoteContainer.hidden = true;
+}
+
+// Hide Loading
+function complete() {
+    quoteContainer.hidden = false;
+    loader.hidden - true;
+}
+
 // Show New Quote
 function newQuote() {
-
+    loading();
     // Pick a random quot from apiQuotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
 
@@ -26,7 +39,9 @@ function newQuote() {
     } else {
         quoteText.classList.remove('long-quote');
     }
+    // Set Quote, Hide Loader
     quoteText.textContent = quote.text;
+    complete();
 }
 
 // Get Quotes From API
@@ -42,7 +57,7 @@ async function getQuotes() {
 }
 
 // Tweet Quote
-function twitterQuote() {
+function tweetQuote() {
     const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
     window.open(twitterUrl, '_blank');
 }
@@ -53,7 +68,13 @@ newQuoteBtn.addEventListener('click', newQuote);
 twitterBtn.addEventListener('click', tweetQuote)
 
 // On Load
-getQuotes();
+// getQuotes();
+loading();
+
+
+
+
+
 
 //****************************************************************************
 // Quotes fetch from local file "quotes.js"
