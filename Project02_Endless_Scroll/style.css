@@ -43,11 +43,11 @@ h1 {
 
 .image-container img {
   width: 100%;
-  margin-top: 
+  margin-top: 10px;
 }
 
 /* Media Query: Large Smartphone */
-@media  and (max-width: 600px) {
+@media (max-width: 600px) {
   h1 {
     font-size: 20px;
   }
