@@ -1,0 +1,16 @@
+/* ROBOT.GIF FROM Giphy - https://giphy/gifs/robot-cinema-4d */
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: 45badc:
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
