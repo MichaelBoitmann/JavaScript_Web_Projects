@@ -145,4 +145,5 @@ async function getJokes() {
     }
 }
 
-getJokes();
+// Event Listener; calling getJokes function on the event of click
+button.addEventListener('click', getJokes);
