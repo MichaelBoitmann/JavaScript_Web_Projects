@@ -13,35 +13,45 @@ function imageMode(color) {
     image3.src = `img/undraw_conceptual_idea_${color}.svg`;
 }
 
+// Simplify Mode by applying the Don't Repeat Yourself 
 
-// Dark Mode Styles
-function darkMode() {
-    nav.style.backgroundColor = 'rgb(0 0 0 / 50%)';
-    textBox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
-    toggleIcon.children[0].textContent = 'Dark Mode';
-    toggleIcon.children[1].classList.replace('fa-sun', 'fa-moon');
-    imageMode('dark');
+function toggleMode(isLight) {
+    nav.style.backgroundColor =  isLight ? 'rgb(255 255 255 / 50%)' :'rgb(0 0 0 / 50%)';
+    textBox.style.backgroundColor = isLight ? 'rgb(0 0 0 / 50%)' : 'rgb(255 255 255 / 50%)';
+    toggleIcon.children[0].textContent = isLight ? 'Light Mode' : 'Dark Mode';
+    isLight ? toggleIcon.children[1].classList.replace('fa-moon', 'fa-sun') : toggleIcon.children[1].classList.replace('fa-sun', 'fa-moon');
+    isLight ? imageMode('light') : imageMode('dark');
 }
 
-// Light Mode Styles
-function lightMode() {
-    nav.style.backgroundColor = 'rgb(255 255 255 / 50%)';
-    textBox.style.backgroundColor = 'rgb(0 0 0 / 50%)';
-    toggleIcon.children[0].textContent = 'Light Mode';
-    toggleIcon.children[1].classList.replace('fa-moon', 'fa-sun');
-    imageMode('light');
-}
+// // Light Mode Styles
+// function lightMode() {
+//     nav.style.backgroundColor = 'rgb(255 255 255 / 50%)';
+//     textBox.style.backgroundColor = 'rgb(0 0 0 / 50%)';
+//     toggleIcon.children[0].textContent = 'Light Mode';
+//     toggleIcon.children[1].classList.replace('fa-moon', 'fa-sun');
+//     imageMode('light');
+// }
 
-// Swtich Theme Dynamically
+
+// // Dark Mode Styles
+// function darkMode() {
+//     nav.style.backgroundColor = 'rgb(0 0 0 / 50%)';
+//     textBox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
+//     toggleIcon.children[0].textContent = 'Dark Mode';
+//     toggleIcon.children[1].classList.replace('fa-sun', 'fa-moon');
+//     imageMode('dark');
+// }
+
+// Switch Theme Dynamically
 function switchTheme(event) {
     if (event.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'light')
-        darkMode();
-    } else {
         document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('light', 'theme')
-        lightMode();
+        localStorage.setItem('theme', 'light')
+        toggleMode(true);
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark')
+        toggleMode(false);
     }
 }
 
