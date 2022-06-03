@@ -14,7 +14,6 @@ function imageMode(color) {
 }
 
 // Simplify Mode by applying the Don't Repeat Yourself 
-
 function toggleMode(isLight) {
     nav.style.backgroundColor =  isLight ? 'rgb(255 255 255 / 50%)' :'rgb(0 0 0 / 50%)';
     textBox.style.backgroundColor = isLight ? 'rgb(0 0 0 / 50%)' : 'rgb(255 255 255 / 50%)';
@@ -31,7 +30,6 @@ function toggleMode(isLight) {
 //     toggleIcon.children[1].classList.replace('fa-moon', 'fa-sun');
 //     imageMode('light');
 // }
-
 
 // // Dark Mode Styles
 // function darkMode() {
