@@ -6,7 +6,7 @@
     <meta name="theme-color" media="(prefers-color-scheme: light)"  content="#000000" />
     <title>Animated Template</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.svg">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
     <!-- AOS CSS -->
@@ -348,7 +348,7 @@
         <!-- Flex Row Container -->
         <div class="flex flex-wrap">
           <!-- Item -->
-          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" data-aos="fade-in">
             <div class="px-6">
               <!-- Image -->
               <img
@@ -381,7 +381,7 @@
             </div>
           </div>
           <!-- Item -->
-          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" data-aos="fade-in" data-aos-delay="400">
             <div class="px-6">
               <!-- Image -->
               <img
@@ -410,7 +410,7 @@
             </div>
           </div>
           <!-- Item -->
-          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" data-aos="fade-in" data-aos-delay="600">
             <div class="px-6">
               <!-- Image -->
               <img
@@ -443,7 +443,7 @@
             </div>
           </div>
           <!-- Item -->
-          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" data-aos="fade-in" data-aos-delay="600">
             <div class="px-6">
               <!-- Image -->
               <img
@@ -522,7 +522,7 @@
         <!-- Flex Row Container -->
         <div class="flex flex-wrap mt-12 justify-center">
           <!-- Item -->
-          <div class="w-full lg:w-3/12 px-4 text-center">
+          <div class="w-full lg:w-3/12 px-4 text-center"data-aos="fade-in" data-aos-delay="600">
             <div class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
               <!-- Icon -->
               <i class="fas fa-medal text-xl"></i>
@@ -537,7 +537,7 @@
             </p>
           </div>
           <!-- Item -->
-          <div class="w-full lg:w-3/12 px-4 text-center">
+          <div class="w-full lg:w-3/12 px-4 text-center" data-aos="fade-in" data-aos-delay="400">
             <div class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
               <!-- Icon -->
               <i class="fas fa-poll text-xl"></i>
@@ -552,7 +552,7 @@
             </p>
           </div>
           <!-- Item -->
-          <div class="w-full lg:w-3/12 px-4 text-center">
+          <div class="w-full lg:w-3/12 px-4 text-center" data-aos="fade-in" data-aos-delay="200">
             <div class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
               <!-- Icon -->
               <i class="fas fa-lightbulb text-xl"></i>
@@ -570,7 +570,7 @@
     <!-- Contact Form -->
     <section class="relative block py-24 lg:pt-0 bg-gray-900">
       <!-- Container -->
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-4" data-aos="fade-in">
         <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
           <div class="w-full lg:w-6/12 px-4">
             <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
@@ -740,26 +740,10 @@
     </div>
   </footer>
   <!-- End of Footer Section -->
-</body>
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-  offset: 120, // offset (in px) from the original trigger point
-  delay: 200, // values from 0 to 3000, with step 50ms
-  duration: 1500, // values from 0 to 3000, with step 50ms
-  easing: 'ease', // default easing for AOS animations
-  once: false, // whether animation should happen only once - while scrolling down
-  mirror: false, // whether elements should animate out while scrolling past them
-  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-  });
-</script>
-<!-- Navigation Script -->
-<script>
-  function toggleNavbar(collapseID) {
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("block");
-  }
-</script>
+  </body>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <!-- Navigation Script -->
+  <script src="navbar.js"></script>
 </html>
