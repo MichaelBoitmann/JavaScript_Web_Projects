@@ -9,6 +9,17 @@ const nav5 = document.getElementById('nav-5');
 function toggleNav() {
     // Toggle: Menu Bars Open/Closed
     menuBars.classList.toggle('change');
+    // Toggle: Menu Active
+    overlay.classList.toggle('overlay-active');
+    if (overlay.classList.contains('overlay-active')) {
+        // Animate In - Overlay
+        
+        overlay.classList.add('overlay-slide-right');
+    } else {
+        // Animate Out - Overlay
+        
+        overlay.classList.add('overlay-slide-left');
+    }
 }
 
 // Event Listeners
@@ -18,3 +29,5 @@ nav2.addEventListener('click', toggleNav);
 nav3.addEventListener('click', toggleNav);
 nav4.addEventListener('click', toggleNav);
 nav5.addEventListener('click', toggleNav);
+
+toggleNave();
