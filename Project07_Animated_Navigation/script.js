@@ -29,5 +29,3 @@ nav2.addEventListener('click', toggleNav);
 nav3.addEventListener('click', toggleNav);
 nav4.addEventListener('click', toggleNav);
 nav5.addEventListener('click', toggleNav);
-
-toggleNave();
