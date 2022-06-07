@@ -1,4 +1,4 @@
-const menuBars = document.getElementById('menuBars');
+const menuBars = document.getElementById('menu-bars');
 const overlay = document.getElementById('overlay');
 const nav1 = document.getElementById('nav-1');
 const nav2 = document.getElementById('nav-2');
@@ -13,8 +13,8 @@ function toggleNav() {
 
 // Event Listeners
 menuBars.addEventListener('click', toggleNav);
-nar1.addEventListener('click', toggleNav);
-nar2.addEventListener('click', toggleNav);
-nar3.addEventListener('click', toggleNav);
-nar4.addEventListener('click', toggleNav);
-nar5.addEventListener('click', toggleNav);
+nav1.addEventListener('click', toggleNav);
+nav2.addEventListener('click', toggleNav);
+nav3.addEventListener('click', toggleNav);
+nav4.addEventListener('click', toggleNav);
+nav5.addEventListener('click', toggleNav);
