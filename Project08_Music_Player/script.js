@@ -1,133 +1,110 @@
-const image = document.querySelector('img');
-const title = document.getElementById('title');
-const artist = document.getElementById('artist');
-const music = document.querySelector('audio');
-const currentTimeEl = document.getElementById('current-time');
-const durationEl = document.getElementById('duration');
-const progress = document.getElementById('progress');
-const progressContainer = document.getElementById('progress-container');
-const prevBtn = document.getElementById('prev');
-const playBtn = document.getElementById('play');
-const nextBtn = document.getElementById('next');
+const countdownForm = document.getElementById('countdownForm');
+const inputContainer = document.getElementById('input-container');
+const dateEl = document.getElementById('date-picker');
 
-// Music
-const songs = [
-    {
-        name: 'boitmann-1',
-        displayName: 'Electric Chill Machine',
-        artist: 'Boitmann Design',
-    },
-    {
-        name: 'boitmann-2',
-        displayName: 'Seven Nation Army (Remix)',
-        artist: 'Boitmann Design',
-    },
-    {
-        name: 'boitmann-3',
-        displayName: 'Goodnight, Disco Queen',
-        artist: 'Boitmann Design',
-    },
-    {
-        name: 'michael-1',
-        displayName: 'Front Row (Remix)',
-        artist: 'Boitmann Design',
-    },
-];
+const countdownEl = document.getElementById('countdown');
+const countdownElTitle = document.getElementById('countdown-title');
+const countdownBtn = document.getElementById('countdown-button');
+const timeElements = document.querySelectorAll('span');
 
-// Check if Playing
-let isPlaying = false;
+const completeEl = document.getElementById('complete');
+const completeElInfo = document.getElementById('complete-info');
+const completeBtn = document.getElementById('complete-button');
 
-// Play
-function playSong() {
-  isPlaying = true;
-  playBtn.classList.replace('fa-play', 'fa-pause');
-  playBtn.setAttribute('title', 'Pause');
-  music.play();
-}
+let countdownTitle = '';
+let countdownDate = '';
+let countdownValue = Date;
+let countdownActive;
+let savedCountdown;
 
-// Pause
-function pauseSong() {
-  isPlaying = false;
-  playBtn.classList.replace('fa-pause', 'fa-play');
-  playBtn.setAttribute('title', 'Play');
-  music.pause();
-}
+const second = 1000;
+const minute = second * 60;
+const hour = minute * 60;
+const day = hour * 24;
 
-// Play or Pause Event Listener
-playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
+// Set Date Input Min & Value with Today's Date
+const today = new Date().toISOString().split('T')[0];
+dateEl.setAttribute('min', today);
 
-// Update DOM
-function loadSong(song) {
-  title.textContent = song.displayName;
-  artist.textContent = song.artist;
-  music.src = `music/${song.name}.mp3`;
-  image.src = `img/${song.name}.jpg`;
-}
-
-// Current Song
-let songIndex = 0;
-
-// Previous Song
-function prevSong() {
-  songIndex--;
-  if (songIndex < 0) {
-    songIndex = songs.length - 1;
-  }
-  loadSong(songs[songIndex]);
-  playSong();
-}
-
-// Next Song
-function nextSong() {
-  songIndex++;
-  if (songIndex > songs.length - 1) {
-    songIndex = 0;
-  }
-  loadSong(songs[songIndex]);
-  playSong();
-}
-
-// On Load - Select First Song
-loadSong(songs[songIndex]);
-
-// Update Progress Bar & Time
-function updateProgressBar(e) {
-  if (isPlaying) {
-    const { duration, currentTime } = e.srcElement;
-    // Update progress bar width
-    const progressPercent = (currentTime / duration) * 100;
-    progress.style.width = `${progressPercent}%`;
-    // Calculate display for duration
-    const durationMinutes = Math.floor(duration / 60);
-    let durationSeconds = Math.floor(duration % 60);
-    if (durationSeconds < 10) {
-      durationSeconds = `0${durationSeconds}`;
+// Populate Countdown / Complete UI
+function updateDOM() {
+  countdownActive = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = countdownValue - now;
+    const days = Math.floor(distance / day);
+    const hours = Math.floor((distance % day) / hour);
+    const minutes = Math.floor((distance % hour) / minute);
+    const seconds = Math.floor((distance % minute) / second);
+    // Hide Input
+    inputContainer.hidden = true;
+    // If the countdown has ended, show final state
+    if (distance < 0) {
+      countdownEl.hidden = true;
+      clearInterval(countdownActive);
+      completeElInfo.textContent = `${countdownTitle} finished on ${countdownDate}`;
+      completeEl.hidden = false;
+    } else {
+      // else, show the countdown in progress
+      countdownElTitle.textContent = `${countdownTitle}`;
+      timeElements[0].textContent = `${days}`;
+      timeElements[1].textContent = `${hours}`;
+      timeElements[2].textContent = `${minutes}`;
+      timeElements[3].textContent = `${seconds}`;
+      completeEl.hidden = true;
+      countdownEl.hidden = false;
     }
-    // Delay switching duration Element to avoid NaN
-    if (durationSeconds) {
-      durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
-    }
-    // Calculate display for currentTime
-    const currentMinutes = Math.floor(currentTime / 60);
-    let currentSeconds = Math.floor(currentTime % 60);
-    if (currentSeconds < 10) {
-      currentSeconds = `0${currentSeconds}`;
-    }
-    currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
+  }, second);
+}
+
+function updateCountdown(e) {
+  e.preventDefault();
+  // Set title and date, save to localStorage
+  countdownTitle = e.srcElement[0].value;
+  countdownDate = e.srcElement[1].value;
+  savedCountdown = {
+    title: countdownTitle,
+    date: countdownDate,
+  };
+  localStorage.setItem('countdown', JSON.stringify(savedCountdown));
+  // Check if no date entered
+  if (countdownDate === '') {
+    alert('Please select a date for the countdown.');
+  } else {
+    // Get number version of current Date, updateDOM
+    countdownValue = new Date(countdownDate).getTime();
+    updateDOM();
   }
 }
 
-// Set Progress Bar
-function setProgressBar(e) {
-  const width = this.clientWidth;
-  const clickX = e.offsetX;
-  const { duration } = music;
-  music.currentTime = (clickX / width) * duration;
+function reset() {
+  // Hide countdowns, show input form
+  countdownEl.hidden = true;
+  completeEl.hidden = true;
+  inputContainer.hidden = false;
+  // Stop the countdown
+  clearInterval(countdownActive);
+  // Reset values, remove localStorage item
+  countdownTitle = '';
+  countdownDate = '';
+  localStorage.removeItem('countdown');
 }
 
-// Event Listeners
-prevBtn.addEventListener('click', prevSong);
-nextBtn.addEventListener('click', nextSong);
-music.addEventListener('ended', nextSong);
-music.addEventListener('timeupdate', updateProgressBar);
-progressContainer.addEventListener('click', setProgressBar);
+function restorePreviousCountdown() {
+  // Get countdown from localStorage if available
+  if (localStorage.getItem('countdown')) {
+    inputContainer.hidden = true; 
+    savedCountdown = JSON.parse(localStorage.getItem('countdown'));
+    countdownTitle = savedCountdown.title;
+    countdownDate = savedCountdown.date;
+    countdownValue = new Date(countdownDate).getTime();
+    updateDOM();
+  }
+}
+
+// Event Listener
+countdownForm.addEventListener('submit', updateCountdown);
+countdownBtn.addEventListener('click', reset);
+completeBtn.addEventListener('click', reset);
+
+// On Load, check localStorage
+restorePreviousCountdown();
