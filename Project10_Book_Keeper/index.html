@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Open Model-->
-    <h1 id="show-modeal">Add Bookmark</h1>
+    <h1 id="show-modal">Add Bookmark</h1>
 
     <!-- Bookmarks-->
     <div class="container" id="bookmarks-container">
@@ -44,7 +44,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal-container show-modal" id="modal">
+    <div class="modal-container" id="modal">
         <div class="modal">
             <i class="fas fa-times close-icon" id="close-modal"></i>
             <div class="modal-header">
@@ -52,7 +52,17 @@
             </div>
             <div class="modal-content">
                 <form action="" id="bookmark-form">
-                    <!-- Website -->
+                    <!-- Website Name -->
+                    <div class="form-group">
+                        <label for="website-name" class="form-label">Website Name</label>
+                        <input type="text" class="form-input" id="website-name">
+                    </div>
+                    <!-- Website URL -->
+                    <div class="form-group">
+                        <label for="website-name" class="form-label">Website URL</label>
+                        <input type="text" class="form-input" id="website-name">
+                    </div>
+                    <button type="submit">Save</button>
                 </form>
             </div>
         </div>
