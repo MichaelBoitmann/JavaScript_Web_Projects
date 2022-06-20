@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Keeper</title>
+    <title>URL Link Keeper</title>
     <link rel="icon" type="image/png" href="favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
@@ -11,38 +11,8 @@
 <body>
     <!-- Open Model-->
     <h1 id="show-modal">Add Bookmark</h1>
-
     <!-- Bookmarks-->
-    <div class="container" id="bookmarks-container">
-        <div class="item">
-            <i class="fas fa-times" id="delete-bookmark" title="Delete"></i>
-            <div class="name">
-                <img src="favicon-16x16.png" alt="Favicon">
-                <a href="https://www.linkedin.com/in/michael-boitmann-85905a33/" target="_blank" rel="noopener">Michael Boitmann</a>
-            </div>
-        </div>
-        <div class="item">
-            <i class="fas fa-times" id="delete-bookmark" title="Delete"></i>
-            <div class="name">
-                <img src="favicon-16x16.png" alt="Favicon">
-                <a href="https://www.linkedin.com/in/michael-boitmann-85905a33/" target="_blank" rel="noopener">Michael Boitmann</a>
-            </div>
-        </div>
-        <div class="item">
-            <i class="fas fa-times" id="delete-bookmark" title="Delete"></i>
-            <div class="name">
-                <img src="favicon-16x16.png" alt="Favicon">
-                <a href="https://www.linkedin.com/in/michael-boitmann-85905a33/" target="_blank" rel="noopener">Michael Boitmann</a>
-            </div>
-        </div>
-        <div class="item">
-            <i class="fas fa-times" id="delete-bookmark" title="Delete"></i>
-            <div class="name">
-                <img src="favicon-16x16.png" alt="Favicon">
-                <a href="https://www.linkedin.com/in/michael-boitmann-85905a33/" target="_blank" rel="noopener">Michael Boitmann</a>
-            </div>
-        </div>
-    </div>
+    <div class="container" id="bookmarks-container"></div>
     <!-- Modal -->
     <div class="modal-container" id="modal">
         <div class="modal">
@@ -60,7 +30,7 @@
                     <!-- Website URL -->
                     <div class="form-group">
                         <label for="website-name" class="form-label">Website URL</label>
-                        <input type="text" class="form-input" id="website-name">
+                        <input type="text" class="form-input" id="website-url">
                     </div>
                     <button type="submit">Save</button>
                 </form>
