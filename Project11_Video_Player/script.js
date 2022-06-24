@@ -7,6 +7,7 @@ const volumeRange = document.querySelector('.volume-range');
 const volumeBar = document.querySelector('.volume-bar');
 const currentTime = document.querySelector('.time-elapsed');
 const duration = document.querySelector('.time-duration');
+const speed = document.querySelector('.player-speed');
 const fullscreenBtn = document.querySelector('.fullscreen');
 
 // Play & Pause ----------------------------------- //
@@ -57,6 +58,8 @@ function setProgress(e) {
 
 // Volume Controls --------------------------- //
 
+let lastVolume = 1;
+
 // Volume Bar
 function changeVolume(e) {
     let volume = e.offsetX / volumeRange.offsetWidth;
@@ -71,13 +74,38 @@ function changeVolume(e) {
     video.volume = volume;
     console.log(volume);
     // Change icon depending on volume
-    volumeIcon.className
+    volumeIcon.className = '';
+    if (volume > 0.7) {
+        volumeIcon.classList.add('fas', 'fa-volume-up');
+    } else if (volume < 0.7 && volume > 0) {
+        volumeIcon.classList.add('fas', 'fa-volume-down');
+    } else if (volume === 0) {
+        volumeIcon.classList.add('fas', 'fa-volume-off');
+    }
+    lastVolume = volume;
 }
 
-
+// Mute/Unmute
+function toggleMute() {
+    volumeIcon.className ='';
+    if (video.volume) {
+        lastVolume = video.volume;
+        video.volume = 0;
+        volumeBar.style.width = 0;
+        volumeIcon.classList.add('fas', 'fa-volume-mute');
+        volumeIcon.setAttribute('title', 'Unmute');
+    } else {
+        video.volume = lastVolume;
+        volumeBar.style.width = `${lastVolume * 100}%`;
+        volumeIcon.classList.add('fas', 'fa-volume-up');
+        volumeIcon.setAttribute('title', 'Mute');
+    }
+}
 // Change Playback Speed -------------------- //
 
-
+function changeSpeed() {
+    video.playbackRate = speed.value;
+}
 
 // Fullscreen ------------------------------- //
 
@@ -89,3 +117,5 @@ video.addEventListener('timeupdate', updateProgress);
 video.addEventListener('canplay', updateProgress);
 progressRange.addEventListener('click', setProgress);
 volumeRange.addEventListener('click', changeVolume);
+volumeIcon.addEventListener('click', toggleMute);
+speed.addEventListener('change', changeSpeed);
