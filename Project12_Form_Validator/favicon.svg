@@ -1,0 +1,78 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg viewBox="-1.9999 -3.9999 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(0.0001, 0.0002)">
+    <g transform="matrix(0.875, 0, 0, 0.875, 0, 0)">
+      <g transform="translate(0, 0)">
+        <g transform="matrix(1.1429, 0, 0, 1.1429, 0, 0)">
+          <g transform="translate(0, 0)">
+            <g id="Layer_1" transform="translate(-2, -4)" style="enable-background:new 0 0 32 32">
+              <g id="Bank">
+                <polygon points="16,4 2,12 30,12  " fill="#D11C1C" class="Red" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(0.0001, 0.0001)">
+    <g transform="matrix(0.875, 0, 0, 0.875, 0, 0)">
+      <g transform="translate(0, 0)">
+        <g transform="matrix(1.1429, 0, 0, 1.1429, 0, 0)">
+          <g transform="translate(0, 0)">
+            <g id="Layer_1" transform="translate(-2, -4)" style="enable-background:new 0 0 32 32">
+              <g id="Bank">
+                <rect x="14" y="14" width="4" height="8" rx="0" ry="0" fill="#D11C1C" class="Red" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(0.0001, 0.0001)">
+    <g transform="matrix(0.875, 0, 0, 0.875, 0, 0)">
+      <g transform="translate(0, 0)">
+        <g transform="matrix(1.1429, 0, 0, 1.1429, 0, 0)">
+          <g transform="translate(0, 0)">
+            <g id="Layer_1" transform="translate(-2, -4)" style="enable-background:new 0 0 32 32">
+              <g id="Bank">
+                <rect x="20" y="14" width="4" height="8" rx="0" ry="0" fill="#D11C1C" class="Red" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(0.0001, 0.0002)">
+    <g transform="matrix(0.875, 0, 0, 0.875, 0, 0)">
+      <g transform="translate(0, 0)">
+        <g transform="matrix(1.1429, 0, 0, 1.1429, 0, 0)">
+          <g transform="translate(0, 0)">
+            <g id="Layer_1" transform="translate(-2, -4)" style="enable-background:new 0 0 32 32">
+              <g id="Bank">
+                <rect x="4" y="24" width="24" height="4" rx="0" ry="0" fill="#D11C1C" class="Red" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(0.0001, 0.0001)">
+    <g transform="matrix(0.875, 0, 0, 0.875, 0, 0)">
+      <g transform="translate(0, 0)">
+        <g transform="matrix(1.1429, 0, 0, 1.1429, 0, 0)">
+          <g transform="translate(0, 0)">
+            <g id="Layer_1" transform="translate(-2, -4)" style="enable-background:new 0 0 32 32">
+              <g id="Bank">
+                <rect x="8" y="14" width="4" height="8" rx="0" ry="0" fill="#D11C1C" class="Red" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
