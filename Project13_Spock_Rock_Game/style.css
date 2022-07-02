@@ -19,11 +19,11 @@ body {
   height: 600px;
   background: white;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .header {
-  background: dodgerblue;
+  background: rgb(230, 118, 13);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   height: 100px;
@@ -48,6 +48,7 @@ h2 {
 .far {
   font-size: 50px;
   margin-right: 40px;
+  user-select: none;
 }
 
 #player .far,
