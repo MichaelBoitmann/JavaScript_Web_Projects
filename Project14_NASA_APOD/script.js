@@ -34,13 +34,6 @@ function updateDOM() {
         const cardTitle = document.createElement('h5');
         cardTitle.classList.add('card-title');
         cardTitle.textContent = result.title;
-        // Save Text
-        const saveText = document.createElement('p');
-        saveText.classList.add('clickable');
-        saveText.textContent = 'Add To Favorites';
-        // Card Text
-        const cardText = document.createElement('p');
-        cardText.textContent = result.explanation;
     });
 }
 
