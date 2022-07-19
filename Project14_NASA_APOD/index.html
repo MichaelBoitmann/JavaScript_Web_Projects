@@ -6,7 +6,7 @@
         <title>NASA API Pictures</title>
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/png" href="https://s2.googleusercontent.com/s2/favicons?domain=www.nasa.gov">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/> -->
         <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
     </head>
     <body>
@@ -21,17 +21,16 @@
                 <span class="background"></span>
                 <!-- Results Nav -->
                 <span class="navigation-items" id="resultsNav">
-                    <h3 class="clickable">Favorites</h3>
+                    <h3 class="clickable" onclick="updateDOM('favorites')">Favorites</h3>
                     <h3>&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</h3>
-                    <h3 class="clickable">Load More</h3>
+                    <h3 class="clickable" onclick="getNasaPictures()">Load More</h3>
                 </span>
                 <!-- Favorites Nav -->
                 <span class="navigation-items hidden" id="favoritesNav">
-                    <h3 class="clickable">Load More NASA Images</h3>
+                    <h3 class="clickable" onclick="getNasaPictures()">Load More NASA Images</h3>
                 </span>
-                <!-- Results Nav -->
             </div>
-            <!-- Images -->
+            <!-- Images Container -->
             <div class="images-container"></div>
         </div>
         <!-- Save Confirmation -->
