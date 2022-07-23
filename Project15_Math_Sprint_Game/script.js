@@ -25,6 +25,7 @@ const playAgainBtn = document.querySelector('.play-again');
 // Equations
 let questionAmount = 0;
 let equationsArray = [];
+let playerGuessArray = [];
 
 // Game Page
 let firstNumber = 0;
@@ -33,8 +34,34 @@ let equationObject = {};
 const wrongFormat = [];
 
 // Time
+let timer;
+let timePlayed = 0;
+let baseTime =0;
+let penaltyTime = 0;
+let finalTime = 0;
+let finaldTime = '0.0s';
+
 
 // Scroll
+let valueY = 0;
+
+// Start timer when game is clicked
+function startTimer() {
+    // Reset times
+    timePlayed = 0;
+    penaltyTime = 0;
+    finalTime = 0;
+}
+
+// Scroll, Store user selection in playerGuessArray
+function select(guessedTrue) {
+    console.log('player guess array: ', playerGuessArray);
+    // Scroll 80 pixels
+    valueY += 80;
+    itemContainer.scroll(0, valueY);
+    // Add player guess to array
+     return guessedTrue ? playerGuessArray.push('true'): playerGuessArray.push('false');
+}
 
 // Dipslay Game Page
 function showGamePage() {
@@ -81,7 +108,6 @@ function createEquations() {
       equationsArray.push(equationObject);
     }
     shuffle(equationsArray);
-    equationsToDOM();
   }
 
   // Add Equations to DOM
@@ -143,7 +169,7 @@ function showCountdown() {
     splashPage.hidden = true;
     countdownStart();
     populateGamePage();
-    setTimeout(showGamePage, 400);
+    setTimeout(showGamePage, 4000);
 }
 
 // Get the value from selected radio button
@@ -180,3 +206,4 @@ startForm.addEventListener('click', () => {
 
 // Event Listeners
 startForm.addEventListener('submit', selectQuestionAmount);
+gamePage.addEventListener('click', startTimer);
