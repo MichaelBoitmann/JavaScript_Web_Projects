@@ -44,12 +44,23 @@ let finalTimeDisplay = '0.0s';
 // Scroll
 let valueY = 0;
 
-// Stop Timer, Process REsults, got to Score Page
+// Stop Timer, Process Results, got to Score Page
 function checkTime() {
     console.log(timePlayed);
     if (playerGuessArray.length = questionAmount) {
         console.log('player guess array: ', playerGuessArray);
         clearInterval(timer);
+        // Check for wrong guesses, add penalty time
+        equationsArray.forEach((equation, index) => {
+            if (equation.evaluated === playerGuessArray[index]) {
+                // Correct Guess, No Penalty
+            } else {
+                // Incorrect Guess, Add Penalty
+                penaltyTime += 0.5;
+            }
+        });
+        finalTime = timePlayed + penaltyTime;
+        console.log('time: ', timePlayed, 'penalty: ', penaltyTime, 'final: ', finalTime);
     }
 }
 
