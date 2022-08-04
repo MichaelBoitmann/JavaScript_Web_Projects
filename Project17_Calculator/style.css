@@ -40,9 +40,6 @@ body {
   overflow-x: auto;
 }
 
-
-
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
@@ -97,7 +94,7 @@ button:focus {
 }
 
 .clear {
-  background: rgb(255, 110, 57);
+  background: rgb(255, 40, 40);
   color: white;
 }
 
@@ -108,5 +105,12 @@ button:focus {
 .equal-sign {
   grid-column: -2;
   grid-row: 2 / span 4;
-  background: rgb(29, 248, 241);
+  background: rgb(13, 206, 87);
+}
+
+/* Media Query: Large Smartphone (Vertical) */
+@media screen and (max-width: 600px) {
+  .calculator {
+    width: 95%;
+  }
 }
