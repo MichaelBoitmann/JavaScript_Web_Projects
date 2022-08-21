@@ -47,9 +47,11 @@ async function getQuote() {
 
 // Tweet Quote
 function tweetQuote() {
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
-    // '_blank' will allow the twitter to open in a new tab
-    window.open(twitterUrl, '_blank');
+  const quote = quoteText.innerText;
+  const author = authorText.innerText;
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
+  // '_blank' will allow the twitter to open in a new tab
+  window.open(twitterUrl, '_blank');
 }
 
 // Event Listeners
