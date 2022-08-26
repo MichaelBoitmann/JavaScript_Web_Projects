@@ -1,6 +1,6 @@
 # JavaScript_Web_Projects
 
-Small Projects that will handle different sort of things listed on each projects below.
+## Small Projects that will handle different sort of things listed on each projects below.
 
 Spock Rock Game - Confetti.js, Modules
 
@@ -42,5 +42,5 @@ Animated Template - Template, AOS.js
 
 Drag and Drop - Drag and Drop API, localStorage
 
-Used a modern ES6,ES7,ES8,ES9,ES10 features to master JavaScript! Taught me to be confident to program with 
-JavaScript with a UI/UX design and mobile friendly practices on each Project
+## Used a modern ES6,ES7,ES8,ES9,ES10 features to master JavaScript! Taught me to be confident to program with 
+## JavaScript with a UI/UX design and mobile friendly practices on each Project
